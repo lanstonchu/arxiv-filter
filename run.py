@@ -71,7 +71,7 @@ class ArxivFilter(object):
         for category in self._categories:
             num_category_added = 0
             while True:
-                new_queries = [Query(q) for q in arxiv.query(search_query=category, sort_by='submittedDate', start=num_category_added, max_results=max_results)]
+                new_queries = [Query(q) for q in arxiv.query(query=category, sort_by='submittedDate', start=num_category_added, max_results=max_results)]
                 num_category_added += len(new_queries)
                 queries += [q for q in new_queries if q.is_recent]
 
